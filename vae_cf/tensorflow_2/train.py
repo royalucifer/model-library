@@ -57,7 +57,7 @@ def train_epoch(
             step += 1
 
         for test_inputs in eval_datasets:
-            test_step(test_inputs)
+            test_step(test_inputs, model, metrics)
 
         with summary_writer.as_default():
             tf.summary.scalar('neg_ELBO_train_step', metrics['neg_elbo'].result(), step=epoch)
